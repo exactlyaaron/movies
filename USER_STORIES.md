@@ -8,7 +8,7 @@
 
 ## User Stories
 
-### Add a Movie (with name and plot)
+### Add a Movie (with name)
 As a user looking for future movie suggestions,
 I want to add movies to a database,
 in order to have a larger group to get suggestions from.
@@ -17,8 +17,22 @@ Usage:
   - `./movies` *starts the application*
   - `4` *Selects "Add a movie" from the main menu*
   - `Speed Racer` *User is prompted to type the name of the movie*
+
+Acceptance Criteria: Prints out a confirmation message with movie name.
+
+---
+### Add a Movie (with plot)
+As a user looking for future movie suggestions,
+I want to add movies to a database with a plot synopsis,
+in order to have a larger group to get suggestions from.
+
+Usage:
+  - `./movies` *starts the application*
+  - `4` *Selects "Add a movie" from the main menu*
+  - `Speed Racer` *User is prompted to type the name of the movie*
   - `...plot synopsis...` *User is then prompted to enter a plot synopsis*
-  - `y` *User is shown details and asked to confirm*
+
+Acceptance Criteria: Prints out a confirmation message with movie name and plot synopsis.
 
 ---
 ### Add a Movie (with genres)
@@ -32,7 +46,8 @@ Usage:
   - `Lord of the Rings: The Fellowship of the Ring` *User is prompted to type the name of the movie*
   - `...plot synopsis...` *User is then prompted to enter a plot synopsis*
   - `fantasy, action` *User is shown details and asked to confirm*
-  - `y` *User is shown details and asked to confirm*
+
+Acceptance Criteria: Prints out a confirmation message with movie details.
 
 ---
 ### Add a Movie (with director)
@@ -47,7 +62,8 @@ Usage:
   - `...plot synopsis...` *User is then prompted to enter a plot synopsis*
   - `fantasy, action` *User is shown details and asked to confirm*
   - `Peter Jackson` *User is prompted to specify the director*
-  - `y` *User is shown details and asked to confirm*
+
+Acceptance Criteria: Prints out a confirmation message with movie details.
 
 ---
 ### Add a Movie (with actors)
@@ -64,6 +80,8 @@ Usage:
   - `Peter Jackson` *User is prompted to specify the director*
   - `Elijah Wood, Orlando Bloom, Sean Bean` *User is prompted to enter actors from the movie*
   - `y` *User is shown details and asked to confirm*
+
+Acceptance Criteria: Prints out a confirmation message with movie details.
 
 ---
 ### Genre Parameter

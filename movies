@@ -19,5 +19,7 @@ puts "2. Get Suggestions\n"
 puts "3. Browse all movies\n"
 puts "4. Add a movie\n"
 
+Router.navigate_main_menu
+
 # training_paths_controller = TrainingPathsController.new()
 # training_paths_controller.list
