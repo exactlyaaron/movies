@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+require_relative 'lib/environment'
+Environment.environment = ENV["DB"] || "development"
+
+require_relative 'lib/router'
+
+def clean_gets
+  (gets || "").chomp
+end
+
+puts "**********************************"
+puts "          FIND A MOVIE"
+puts "**********************************"
+puts "\n"
+puts "What do you want to do?"
+puts "1. My Liked Movies\n"
+puts "2. Get Suggestions\n"
+puts "3. Browse all movies\n"
+puts "4. Add a movie\n"
+
+# training_paths_controller = TrainingPathsController.new()
+# training_paths_controller.list
