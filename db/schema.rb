@@ -11,12 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 140811101700) do
+ActiveRecord::Schema.define(version: 140811124200) do
+
+  create_table "director_details", force: true do |t|
+    t.integer "director_id"
+    t.integer "movie_id"
+  end
+
+  create_table "directors", force: true do |t|
+    t.integer "director_details_id"
+    t.string  "name"
+  end
 
   create_table "genre_details", force: true do |t|
     t.integer "genre_id"
     t.integer "movie_id"
-    t.string  "name"
   end
 
   create_table "genres", force: true do |t|
@@ -25,8 +34,9 @@ ActiveRecord::Schema.define(version: 140811101700) do
   end
 
   create_table "movies", force: true do |t|
-    t.string "name"
-    t.string "plot"
+    t.integer "genre_details_id"
+    t.string  "name"
+    t.string  "plot"
   end
 
 end

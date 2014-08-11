@@ -12,10 +12,11 @@ class MoviesController
     name = clean_gets
     @movie = Movie.create(name: name)
     if movie.new_record?
-      puts movie.errors.full_messages
+      puts "Name #{movie.errors[:name][0]}"
     else
       add_plot(@movie)
     end
+    # movie.errors.nil? ? add_plot(@movie) : (puts "Name #{movie.errors[:name][0]}")
   end
 
   def add_plot(movie)
@@ -32,12 +33,18 @@ class MoviesController
     puts "Specify genre(s) separated by commas. Ex: 'Action, Comedy'"
     puts "----------------------------------------------------------"
     genres = clean_gets
-    genre_array = genres.split(',')
-    genre_array.each do |word|
-      word.strip!
-      genre = Genre.create(name: word)
-      movie.genres << genre
-    end
+    movie.add_genres(genres)
+    movie.save
+    add_director(movie)
+  end
+
+  def add_director(movie)
+    puts "----------------------------------------------------------------------"
+    puts "Specify director(s) separated by commas. Ex: 'Guy Ritchie, James Gunn'"
+    puts "----------------------------------------------------------------------"
+    directors = clean_gets
+    movie.add_directors(directors)
+    movie.save
     puts "Movie has been added to the database."
   end
 
