@@ -1,6 +1,6 @@
-RSpec.describe Movie do
+RSpec.describe Genre do
   context "validations" do
-    it { should have_many(:genres).through(:genre_details) }
+    it { should have_many(:movies).through(:genre_details) }
     it { should ensure_length_of(:name).
          is_at_most(30).
          with_message("must be less than 30 characters") }
@@ -9,15 +9,15 @@ RSpec.describe Movie do
           with_message("already exists") }
 
     context "validating format" do
-      let!(:movie){ Movie.create(name: "12sadfkljasldkfj asdflkjsadflkjsadlfkjsdaf asldfkjsdf sdflakjdsflkjsdf") }
+      let!(:genre){ Genre.create(name: "12sadfkljasldkfj asdflkjsadflkjsadlfkjsdaf asldfkjsdf sdflakjdsflkjsdf") }
 
       it "should have an appropriate error message" do
-        expect(movie.errors.full_messages_for(:name)
+        expect(genre.errors.full_messages_for(:name)
               ).to include("Name must be less than 30 characters")
       end
 
       it "shouldn't save the new record" do
-        expect(Movie.count).to eq 0
+        expect(Genre.count).to eq 0
       end
     end
   end

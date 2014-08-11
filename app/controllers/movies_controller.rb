@@ -1,3 +1,6 @@
+require_relative "../models/genre.rb"
+require_relative "../models/genre_details.rb"
+
 class MoviesController
 
   attr_accessor :movie
@@ -21,6 +24,20 @@ class MoviesController
     puts "----------------------------------------------"
     plot = clean_gets
     movie.update(plot: plot)
+    add_genre(movie)
+  end
+
+  def add_genre(movie)
+    puts "----------------------------------------------------------"
+    puts "Specify genre(s) separated by commas. Ex: 'Action, Comedy'"
+    puts "----------------------------------------------------------"
+    genres = clean_gets
+    genre_array = genres.split(',')
+    genre_array.each do |word|
+      word.strip!
+      genre = Genre.create(name: word)
+      movie.genres << genre
+    end
     puts "Movie has been added to the database."
   end
 

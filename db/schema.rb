@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 140808131000) do
+ActiveRecord::Schema.define(version: 140811101700) do
+
+  create_table "genre_details", force: true do |t|
+    t.integer "genre_id"
+    t.integer "movie_id"
+    t.string  "name"
+  end
+
+  create_table "genres", force: true do |t|
+    t.integer "genre_details_id"
+    t.string  "name"
+  end
 
   create_table "movies", force: true do |t|
     t.string "name"
