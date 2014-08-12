@@ -1,4 +1,4 @@
-require_relative "genre.rb"
+# require_relative "genre.rb"
 
 class Movie < ActiveRecord::Base
   has_many :genre_details
