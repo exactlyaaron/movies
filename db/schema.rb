@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 140811124200) do
+ActiveRecord::Schema.define(version: 140812210100) do
 
   create_table "director_details", force: true do |t|
     t.integer "director_id"
@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 140811124200) do
   end
 
   create_table "movies", force: true do |t|
-    t.integer "genre_details_id"
     t.string  "name"
     t.string  "plot"
+    t.integer "liked", default: 0
   end
 
 end

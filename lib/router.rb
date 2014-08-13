@@ -10,7 +10,7 @@ class Router
       puts "1. Genre"
       puts "2. Director"
       suggestions_controller = SuggestionsController.new()
-      suggestions_controller.get_list
+      suggestions_controller.get_prompt
     when "3"
       movies_controller = MoviesController.new()
       movies_controller.list

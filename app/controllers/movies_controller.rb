@@ -80,10 +80,55 @@ class MoviesController
         puts "Director(s): #{director_string}\n"
         puts "Plot Summary:"
         puts "#{movie.plot}"
+        like_movie(movie)
       else
         puts "I don't know the '#{selection}' command."
         exit
     end
+  end
+
+  def like_movie(movie)
+    if movie.liked == false
+      puts "\n"
+      puts "****************************"
+      puts "Do you like this movie? y/n"
+      puts "****************************"
+      decision = clean_gets
+      case decision
+      when "y"
+        movie.update(liked: 1)
+        puts "Congrats, #{movie.name} was added to your 'liked' list."
+      when "n"
+        movie.update(liked: 0)
+        puts "So you did not think #{movie.name} was any good. That's cool. It is not in your 'liked' list."
+      else
+        puts "I don't know the '#{decision}' command. That was not an option."
+        exit
+      end
+    else
+      update_liked(movie)
+    end
+  end
+
+  def update_liked(movie)
+    puts "\n"
+    puts "*********************************"
+    puts "You like the movie, #{movie.name}"
+    puts "Do you still like this movie? y/n"
+    puts "*********************************"
+    decision = clean_gets
+    case decision
+    when "y"
+      puts "Congrats, #{movie.name} was kept in your 'liked' list."
+      exit
+    when "n"
+      movie.update(liked: 0)
+      puts "So you changed your mind about #{movie.name}. That's cool. It is no longer in your 'liked' list."
+    else
+      puts "I don't know the '#{decision}' command. That was not an option."
+      exit
+    end
+
   end
 
 end
