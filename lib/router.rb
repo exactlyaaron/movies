@@ -3,7 +3,11 @@ class Router
     command = clean_gets
     case command
     when "1"
-      puts "you typed 1"
+      puts "\n--------------------------"
+      puts "Your list of liked movies:"
+      puts "--------------------------"
+      movies_controller = MoviesController.new()
+      movies_controller.list_liked
     when "2"
       puts "\n------------------------"
       puts "Get suggestions based on:"

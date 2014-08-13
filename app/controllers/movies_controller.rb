@@ -63,6 +63,12 @@ class MoviesController
     show_movie
   end
 
+  def list_liked
+    Movie.all.where(liked: true).each_with_index do |movie, i|
+      puts "#{i+1}. #{movie.name}"
+    end
+  end
+
   def show_movie
     selection = clean_gets
     case selection
@@ -88,7 +94,7 @@ class MoviesController
   end
 
   def like_movie(movie)
-    if movie.liked == false
+    if movie.liked == 0
       puts "\n"
       puts "****************************"
       puts "Do you like this movie? y/n"
